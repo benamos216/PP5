@@ -45,3 +45,22 @@ header {
     border-left: 1px solid #ec6288;
     height: 50px;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-media-links {
+    color:#ec6288;
+}
+
+.social-media-links:hover {
+    color:#62ECC6;
+}
+
+.social-media-links > i {
+    font-size: 50px;
+}
