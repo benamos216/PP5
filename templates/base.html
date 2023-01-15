@@ -34,12 +34,131 @@
     {% endblock %}
 
     <title>Floree Rose Flowers{% block extra_title %}{% endblock %}</title>
-</head>
-<body>
-    <header class="container-fluid fixed-top">
-
+    </head>
+    <body>
+    <header class="container-fluid fixed-top bg-white">
+        <div id="topnav" class="row">
+            <div class="col col-lg-4 my-auto py-0 text-left text-lg-left">
+                <a class="nav-link-home" href="{% url 'home' %}">
+                    <h2 class="">Floree Rose</h2>
+                    <h3 class="">Flowers</h3>
+                </a>
+            </div>
+            <div class="col col-lg-4 my-auto py-0">
+                <form class="form-inline float-auto">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-search my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <li class="list-inline-item">
+                        <div class="text-center">
+                            <div><i class="fa-solid fa-sterling-sign"></i></div>
+                            <p class="my-0">
+                                {% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                    £0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
+                            <div class="text-center">
+                                <div><i class="fa-sharp fa-solid fa-cart-shopping"></i></div>
+                                <p class="my-0">Checkout</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-inline-item dropdown">
+                        <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="#" class="dropdown-item">Product Management</a>
+                                {% endif %}
+                                <a href="#" class="dropdown-item">My Profile</a>
+                                <a href="#" class="dropdown-item">Logout</a>
+                            {% else %}
+                                <a href="#" class="dropdown-item">Register</a>
+                                <a href="#" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row bg-white">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="navbar-nav w-auto mx-auto">
+                        <li class="d-block nav-item d-md-none">
+                            <a class="logo-font font-weight-bold nav-link mr-5" href="{% url 'home' %}" id="home-link">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown vl">
+                            <a class="logo-font font-weight-bold nav-link mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                All Products
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                                <a href="#" class="dropdown-item">By Price</a>
+                                <a href="#" class="dropdown-item ">By Rating</a>
+                                <a href="#" class="dropdown-item ">By Category</a>
+                                <a href="#" class="dropdown-item">All Products</a>
+                            </div>
+                        </li>
+                        <br>
+                        <li class="nav-item dropdown vl">
+                            <a class="logo-font font-weight-bold nav-link mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Seasonal
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+                                <a href="#" class="dropdown-item">Activewear &amp; Essentials</a>
+                                <a href="#" class="dropdown-item">Jeans</a>
+                                <a href="#" class="dropdown-item">Shirts</a>
+                                <a href="#" class="dropdown-item">All Clothing</a>
+                            </div>
+                        </li>
+                
+                        <li class="nav-item dropdown vl">
+                            <a class="logo-font font-weight-bold nav-link mr-5" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Clearance
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
+                                <a href="#" class="dropdown-item">Bed &amp; Bath</a>
+                                <a href="#" class="dropdown-item">Kitchen &amp; Dining</a>
+                                <a href="#" class="dropdown-item">All Homeware</a>
+                            </div>
+                        </li>
+                
+                        <li class="nav-item dropdown vl">
+                            <a class="font-weight-bold nav-link" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Miscellanous
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+                                <a href="#" class="dropdown-item">New Arrivals</a>
+                                <a href="#" class="dropdown-item">Deals</a>
+                                <a href="#" class="dropdown-item">Clearance</a>
+                                <a href="#" class="dropdown-item">All Specials</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
-    
+
     {% if messages %}
         <div class="message-container">
 
@@ -55,8 +174,8 @@
     {% block postloadjs %}
     {% endblock %}
 
-</body>
-<footer>
+    </body>
+    <footer>
 
-</footer>
+    </footer>
 </html>

@@ -1,3 +1,47 @@
 body {
-    background: red;
+    background: #ec6288;
+}
+
+header {
+    color: #ec6288;
+}
+
+.nav-link,
+.nav-link-home {
+    color: #ec6288 !important;
+}
+
+.nav-link-home:hover {
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #62ECC6 !important;
+}
+
+.dropdown-item {
+    color: #ec6288 !important;
+}
+
+.dropdown-item:hover {
+    color: #62ECC6 !important;
+}
+
+.form-control {
+    width: 300px !important;
+}
+
+.btn-search {
+    color:#ec6288;
+    border: 1px solid #ec6288;
+}
+
+.btn-search:hover {
+    color:#62ECC6;
+    border: 1px solid #62ECC6;
+}
+
+.vl {
+    border-left: 1px solid #ec6288;
+    height: 50px;
 }
