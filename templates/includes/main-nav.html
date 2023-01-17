@@ -10,7 +10,7 @@
                 <div class="col-lg-9 col-md-9 col-sm-8 NoPaddingLeftRight">
                     <div class="TopLinks">
                         {% if user.is_authenticated %}
-                            <div class="link total">
+                            <div class="link">
                                 <p class="my-0">
                                     {% if grand_total %}
                                         £{{ grand_total|floatformat:2 }}
@@ -19,12 +19,12 @@
                                     {% endif %}
                                 </p>
                             </div>
-                            <div class="link basket">
+                            <div class="link">
                                 <a href="">
                                     <i class="fa-solid fa-cart-shopping"></i>
                                 </a>
                             </div>
-                            <div class="link account">
+                            <div class="link">
                                 <a href="">
                                     My Account
                                 </a>
@@ -32,7 +32,7 @@
                             <div class="link divide">
                                 &nbsp;
                             </div>
-                            <div class="link logout">
+                            <div class="link">
                                 <a href="">
                                     Logout
                                 </a>
@@ -44,7 +44,7 @@
                                 Welcome UserName
                             </div>
                         {% else %}
-                            <div class="link register">
+                            <div class="link">
                                 <a href="">
                                     Register
                                 </a>

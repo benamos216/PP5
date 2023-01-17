@@ -46,20 +46,12 @@ header {
     padding-right: 10px;
 }
 
-.link.login > a,
-.link.register > a,
-.link.logout > a,
-.link.account > a,
-.link.basket > a {
+.link > a {
     color: #ec6288;
     text-decoration: none;
 }
 
-.link.login > a:hover,
-.link.register > a:hover,
-.link.logout > a:hover,
-.link.account > a:hover,
-.link.basket > a:hover {
+.link > a:hover {
     color: #62ECC6;
     text-decoration: none;
 }
@@ -100,7 +92,7 @@ header {
 }
 
 .footer {
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
@@ -116,6 +108,21 @@ header {
 
 .social-media-links > i {
     font-size: 50px;
+}
+
+.policy {
+    display: inline-block;
+}
+
+.policy > div {
+    float: left;
+    padding-right: 15px;
+}
+
+
+/* main page carousel */
+.d.inline-block {
+    float: none;
 }
 
 @media (min-width: 1200px) {
