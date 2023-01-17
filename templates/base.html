@@ -17,6 +17,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
 
     {% endblock %}
 
@@ -36,63 +39,39 @@
     <title>Floree Rose Flowers{% block extra_title %}{% endblock %}</title>
     </head>
     <body>
-    <header class="container-fluid fixed-top bg-white">
-        <div id="topnav" class="row">
-            <div class="col col-lg-4 my-auto py-0 text-left text-lg-left">
-                <a class="nav-link-home" href="{% url 'home' %}">
-                    <h2 class="">Floree Rose</h2>
-                    <h3 class="">Flowers</h3>
-                </a>
-            </div>
-            <div class="col col-lg-4 my-auto py-0">
-                <form class="form-inline float-auto">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-search my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item">
-                        <div class="text-center">
-                            <div><i class="fa-solid fa-sterling-sign"></i></div>
-                            <p class="my-0">
-                                {% if grand_total %}
-                                    £{{ grand_total|floatformat:2 }}
-                                {% else %}
-                                    £0.00
-                                {% endif %}
-                            </p>
+
+        {% include 'includes/main-nav.html' %}
+    <!-- <header class="container-fluid fixed-top bg-white">
+        <div id="divTopWrapper" class="col-lg-md topwrapper">
+            <div class="inner">
+                <div class="row lg-md-display">
+                    <div class="row">
+                        <div class="col-3 col-lg-3 col-md-3 col-sm-4 NoPaddingLeftRight">
+                            <div style>
+                                <a class="nav-link-home" href="{% url 'home' %}">
+                                    <h2 class="">Floree Rose</h2>
+                                    <h3 class="">Flowers</h3>
+                                </a>
+                            </div>
                         </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
-                            <div class="text-center">
-                                <div><i class="fa-sharp fa-solid fa-cart-shopping"></i></div>
-                                <p class="my-0">Checkout</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="list-inline-item dropdown">
-                        <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item">Product Management</a>
-                                {% endif %}
-                                <a href="#" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Logout</a>
+                        <div class="col-9 col-lg-9 col-md-9 col-sm-8 NoPaddingLeftRight" style="text-align:right;">
+                            {% if user.is_authenticated %}
+                                <div id="LoggedInTopLinks">
+                                    <div>
+                                        <a href="">
+                                            Register
+                                        </a>
+                                    </div>
+                                    <div>
+                                        &nbsp;
+                                    </div>
+                                </div>
                             {% else %}
-                                <a href="#" class="dropdown-item">Register</a>
-                                <a href="#" class="dropdown-item">Login</a>
+
                             {% endif %}
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row bg-white">
@@ -157,7 +136,7 @@
                 </div>
             </nav>
         </div>
-    </header>
+    </header> -->
 
     {% if messages %}
         <div class="message-container">

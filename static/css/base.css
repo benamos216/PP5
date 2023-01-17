@@ -1,49 +1,102 @@
 body {
     background: #ec6288;
+    color: #ec6288;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-weight: 500;
+    font-size: larger;
 }
 
 header {
     color: #ec6288;
 }
 
-.nav-link,
-.nav-link-home {
-    color: #ec6288 !important;
+.topwrapper {
+    background-color: white;
+    width: 100%;
+    height: 230px;
+    border-bottom: 1px solid #ec6288;
 }
 
-.nav-link-home:hover {
+.inner {
+    height: auto;
+    margin: 0 auto 0;
+    max-width: 1092px;
+    min-height: 100%;
+}
+
+.main-logo {
+    background: url('/media/floree-rose-logo.jpg') no-repeat center center;
+    background-size: cover;
+    height: 220px;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.TopLinks {
+    padding-top: 30px;
+}
+
+.link {
+    float: right;
+    padding-right: 10px;
+}
+
+.link.login > a,
+.link.register > a,
+.link.logout > a,
+.link.account > a,
+.link.basket > a {
+    color: #ec6288;
     text-decoration: none;
 }
 
-.nav-link:hover {
-    color: #62ECC6 !important;
+.link.login > a:hover,
+.link.register > a:hover,
+.link.logout > a:hover,
+.link.account > a:hover,
+.link.basket > a:hover {
+    color: #62ECC6;
+    text-decoration: none;
 }
 
-.dropdown-item {
-    color: #ec6288 !important;
+.divide {
+    border-left: 2px solid #ec6288;
 }
 
-.dropdown-item:hover {
-    color: #62ECC6 !important;
+#panelsearcharea,
+#searcharea {
+    padding-top: 20px;
+}
+
+.icon {
+    color:#ec6288;
 }
 
 .form-control {
-    width: 300px !important;
+    border-color: #ec6288 !important;
+    color: #ec6288 !important;
 }
 
-.btn-search {
-    color:#ec6288;
-    border: 1px solid #ec6288;
+.menu {
+    float: right;
+    padding-top: 20px;
 }
 
-.btn-search:hover {
-    color:#62ECC6;
-    border: 1px solid #62ECC6;
+.nav-link {
+    color:#ec6288 !important;
 }
 
-.vl {
-    border-left: 1px solid #ec6288;
-    height: 50px;
+.dropdown-item {
+    color: #ec6288;
+}
+
+.dropdown-item:hover {
+    color: #62ECC6;
 }
 
 .footer {
@@ -63,4 +116,33 @@ header {
 
 .social-media-links > i {
     font-size: 50px;
+}
+
+@media (min-width: 1200px) {
+    .col-lg-3 {
+        width: 25%;
+    }
+
+    .col-lg-9 {
+        width: 75%;
+    }
+
+    .lg-md-display {
+        display: block;
+    }
+
+    .topwrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .lg-md-display {
+        display: block;
+    }
+
+    .inner {
+        max-width: 1000px;
+    }
 }
