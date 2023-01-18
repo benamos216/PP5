@@ -2,12 +2,12 @@
     <div class="inner">
         <div class="row lg-md-display">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-4 NoPaddingLeftRight">
+                <div class="col-lg-3 col-md-3 NoPaddingLeftRight">
                     <div class="main-logo">
-                        <a href="{% url 'home' %}"></a>
+                        <a class="main-logo" href="{% url 'home' %}"></a>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-9 col-sm-8 NoPaddingLeftRight">
+                <div class="col-lg-9 col-md-9 NoPaddingLeftRight">
                     <div class="TopLinks">
                         {% if user.is_authenticated %}
                             <div class="link">
@@ -58,7 +58,7 @@
                                 </a>
                             </div>
                             <div class="link icon">
-                                <i class="fa-light fa-user"></i>
+                                <i class="fa-solid fa-user"></i>
                             </div>
                         {% endif %}
                     </div>
@@ -153,5 +153,6 @@
                 </div>
             </div>
         </div>
+        {% include 'includes/mobile-nav.html' %}
     </div>
 </div>
