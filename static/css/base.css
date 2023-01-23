@@ -223,3 +223,22 @@ header {
         margin-bottom: 10px;
     }
 }
+
+/* account pages */
+
+.account_link,
+.secondaryAction {
+    color: white;
+    text-decoration: none;
+}
+
+.account_link:hover,
+.secondaryAction:hover {
+    color:#62ECC6;
+    text-decoration: none;
+}
+
+/* Allauth form formatting */
+.allauth-form-inner-content {
+    margin: 1.5rem; /* mt-4 */
+}
