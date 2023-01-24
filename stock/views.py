@@ -1,3 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Stock, Category
+
+
+def get_stocks(request):
+    """View to show all products, includes sorting and search functionality"""
+
+    stocks = Stock.objects.all()
+
+    return render(request, 'stock/stock.html')
