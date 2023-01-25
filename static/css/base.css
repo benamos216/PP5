@@ -242,3 +242,14 @@ header {
 .allauth-form-inner-content {
     margin: 1.5rem; /* mt-4 */
 }
+
+/* stock pages */
+
+.text-stock {
+    color: #ec6288;
+}
+
+.stock-link:hover {
+    color: #62ECC6;
+    text-decoration: none;
+}
