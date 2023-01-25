@@ -8,4 +8,8 @@ def get_stocks(request):
 
     stocks = Stock.objects.all()
 
-    return render(request, 'stock/stock.html')
+    context = {
+        'stocks': stocks
+    }
+
+    return render(request, 'stock/stock.html', context)
