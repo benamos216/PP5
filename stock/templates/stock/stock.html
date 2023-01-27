@@ -37,10 +37,11 @@
                                             {% else %}
                                                 <small class="text-stock">No Rating</small>
                                             {% endif %}
+                                            <!--Allows only registered users with permissions to edit or delete stock.-->
                                             {% if request.user.is_superuser %}
                                                 <small class="ml-3">
-                                                    <a href="{#}" class="text-stock stock-link">Edit</a> |
-                                                    <a href="{#}" class="text-stock stock-link">Delete</a>
+                                                    <a href="{% url 'edit_stock' stock.id %}" class="text-stock stock-link">Edit</a> |
+                                                    <a href="{{% url 'delete_stock' stock.id %}}" class="text-stock stock-link">Delete</a>
                                                 </small>
                                             {% endif %}
                                         </div>
