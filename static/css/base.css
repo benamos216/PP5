@@ -250,6 +250,6 @@ header {
 }
 
 .stock-link:hover {
-    color: #62ECC6;
-    text-decoration: none;
+    color: #62ECC6 !important;
+    text-decoration: none !important;
 }
