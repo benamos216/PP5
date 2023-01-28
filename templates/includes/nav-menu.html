@@ -15,9 +15,9 @@
                     All Products
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                    <a href="#" class="dropdown-item">By Price</a>
-                    <a href="#" class="dropdown-item ">By Rating</a>
-                    <a href="#" class="dropdown-item ">By Category</a>
+                    <a href="{% url 'stocks' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                    <a href="{% url 'stocks' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                    <a href="{% url 'stocks' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
                     <a href="{% url 'stocks' %}" class="dropdown-item">All Products</a>
                 </div>
             </li>
@@ -29,10 +29,10 @@
                     Seasonal
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="seasonal-link">
-                    <a href="#" class="dropdown-item">Spring</a>
-                    <a href="#" class="dropdown-item">Summer</a>
-                    <a href="#" class="dropdown-item">Autumn</a>
-                    <a href="#" class="dropdown-item">Winter</a>
+                    <a href="{% url 'stocks' %}?category=spring" class="dropdown-item">Spring</a>
+                    <a href="{% url 'stocks' %}?category=summer" class="dropdown-item">Summer</a>
+                    <a href="{% url 'stocks' %}?category=autumn" class="dropdown-item">Autumn</a>
+                    <a href="{% url 'stocks' %}?category=winter" class="dropdown-item">Winter</a>
                 </div>
             </li>
             <div class="link divide">
@@ -43,9 +43,9 @@
                     Promotions
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="clearanace-link">
-                    <a href="#" class="dropdown-item">New</a>
-                    <a href="#" class="dropdown-item">Special Purchases</a>
-                    <a href="#" class="dropdown-item">All Promotions</a>
+                    <a href="{% url 'stocks' %}?category=new" class="dropdown-item">New</a>
+                    <a href="{% url 'stocks' %}?category=special_purchase" class="dropdown-item">Special Purchases</a>
+                    <a href="{% url 'stocks' %}?category=new, special_purchase" class="dropdown-item">All Promotions</a>
                 </div>
             </li>
             <div class="link divide">
@@ -56,9 +56,9 @@
                     Miscellanous
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="misc-link">
-                    <a href="#" class="dropdown-item">Clearance</a>
-                    <a href="#" class="dropdown-item">Other</a>
-                    <a href="#" class="dropdown-item">All Misc</a>
+                    <a href="{% url 'stocks' %}?category=clearance" class="dropdown-item">Clearance</a>
+                    <a href="{% url 'stocks' %}?category=other" class="dropdown-item">Other</a>
+                    <a href="{% url 'stocks' %}?category=clearance, other" class="dropdown-item">All Misc</a>
                 </div>
             </li>
         </ul>

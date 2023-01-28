@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.db.models import Q
 
 from .models import Stock, Category
 from .forms import StockForm
@@ -9,8 +10,46 @@ def get_stocks(request):
 
     stocks = Stock.objects.all()
 
+    query = None
+    categories = None
+    sort = None
+    direction = None
+
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                stocks = stock.annotate(lower_name=Lower('name'))
+            if sortkey == 'category':
+                sortkey = 'category__name'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            stocks = stocks.order_by(sortkey)
+
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            stocks = stocks.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                return redirect(reverse('products'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            stocks = stocks.filter(queries)
+
+    current_sorting = f'{sort}_{direction}'
+
     context = {
-        'stocks': stocks
+        'stocks': stocks,
+        'search_term': query,
+        'current_categories': categories,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'stock/stock.html', context)
