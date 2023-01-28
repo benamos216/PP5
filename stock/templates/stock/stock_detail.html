@@ -87,7 +87,13 @@
                                     </span>
                                     <span class="text-uppercase text-white stock-link">Keep Shopping</span>
                                 </a>
-                                <input type="submit" class="btn btn-black btn-outline-light stock-link rounded-1 text-uppercase mt-5 text-white" value="Add to Bag">
+                                {% if stock.stock_quantity == none %}
+                                    <p class="mt-2 font-weight-bold">OUT OF STOCK</p>
+                                {% elif stock.stock_quantity == 0 %}
+                                    <p class="mt-2 font-weight-bold">OUT OF STOCK</p>
+                                {% else %}
+                                    <input type="submit" class="btn btn-black btn-outline-light stock-link rounded-1 text-uppercase mt-5 text-white" value="Add to Bag">
+                                {% endif %} 
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
