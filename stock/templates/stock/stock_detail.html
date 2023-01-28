@@ -31,12 +31,19 @@
                         </p>
                     {% endif %}
                     <!--Displays rating if there is one, or no rating if not.-->
-                    {% if product.rating %}
-                        <p class="mt-2"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</p>
+                    {% if stock.rating %}
+                        <p class="mt-2"><i class="fas fa-star mr-1"></i>{{ stock.rating }} / 5</p>
                     {% else %}
                         <p class="mt-2">No Rating</p>
                     {% endif %}
-                    <h4 class="mt-2 font-weight-bold">{{ stock.description }}</h4>
+                    {% if stock.stock_quantity == none %}
+                        <p class="mt-2 font-weight-bold">OUT OF STOCK</p>
+                    {% elif stock.stock_quantity == 0 %}
+                        <p class="mt-2 font-weight-bold">OUT OF STOCK</p>
+                    {% else %}
+                        <p class="mt-2">Quantity Available to purchase: <strong>{{ stock.stock_quantity }}</strong></p>
+                    {% endif %}                        
+                    <h4 class="mt-2">{{ stock.description }}</h4>
                     <!--Allows only registered users with permissions to edit or delete stock.-->
                     {% if request.user.is_superuser %}
                         <small class="mt-3 text-white">

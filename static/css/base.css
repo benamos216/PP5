@@ -253,3 +253,24 @@ header {
     color: #62ECC6 !important;
     text-decoration: none !important;
 }
+
+/*Crispy Forms*/
+
+.form-group {
+    color: white;
+}
+
+.btn-file {
+    border: 1px solid white;
+    color: white;
+}
+
+.btn-file:hover {
+    color: white;
+}
+
+.new-image {
+    color: white;
+    border: 1px solid white;
+    border-radius: 0.25rem;
+}
