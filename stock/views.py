@@ -28,6 +28,27 @@ def stock_detail(request, stock_id):
     return render(request, 'stock/stock_detail.html', context)
 
 
+def add_stock(request):
+    """ Add a stock line to the store """
+    if not request.user.is_superuser:
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = StockForm(request.POST, request.FILES)
+        if form.is_valid():
+            stock = form.save()
+            return redirect(reverse('stock_detail', args=[stock.id]))
+    else:
+        form = StockForm()
+
+    template = 'stock/add_stock.html'
+    context = {
+        'form': form
+    }
+
+    return render(request, template, context)
+
+
 def edit_stock(request, stock_id):
     """ Edit a stock in the store """
     if not request.user.is_superuser:
