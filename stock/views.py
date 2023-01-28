@@ -40,7 +40,7 @@ def get_stocks(request):
             if not query:
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(price__icontains=query)
             stocks = stocks.filter(queries)
 
     current_sorting = f'{sort}_{direction}'

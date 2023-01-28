@@ -3,7 +3,7 @@ import random
 
 
 class Category(models.Model):
-    """Catergory Model"""
+    """Category Model"""
 
     class Meta:
         verbose_name_plural = 'Categories'

@@ -254,6 +254,10 @@ header {
     text-decoration: none !important;
 }
 
+.sort-by-dropdown {
+    text-align: -webkit-right;
+}
+
 /*Crispy Forms*/
 
 .form-group {
