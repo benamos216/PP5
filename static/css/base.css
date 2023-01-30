@@ -258,6 +258,16 @@ header {
     text-align: -webkit-right;
 }
 
+/* Basket Page */
+
+.basket-items {
+    height: 10rem;
+}
+
+.stock-details {
+    margin-left: -150px;
+}
+
 /*Crispy Forms*/
 
 .form-group {
