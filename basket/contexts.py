@@ -31,4 +31,5 @@ def basket_contents(request):
         'grand_total': grand_total,
     }
 
+    print(basket_items)
     return context
