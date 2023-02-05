@@ -39,6 +39,7 @@ class Stock(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     stock_quantity = models.IntegerField(null=True, blank=True)
+    gift = models.BooleanField(null=True, blank=True, default=False, editable=False)
 
     def __str__(self):
         return self.name
