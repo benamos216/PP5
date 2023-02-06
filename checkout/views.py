@@ -13,7 +13,7 @@ def checkout(request):
     if request.method == 'POST':
         basket = request.session.get('basket', {})
 
-    form_data = {
+        form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
             'email': request.POST['email'],
@@ -24,9 +24,9 @@ def checkout(request):
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
         }
+        order_form = OrderForm(form_data)
 
-    order_form = OrderForm(form_data)
-
+    order_form = OrderForm()
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
