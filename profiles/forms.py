@@ -1,10 +1,10 @@
 from django import forms
-from .models import UserDetails
+from .models import UserProfile
 
 
-class UserDetailsForm(forms.ModelForm):
+class UserProfileForm(forms.ModelForm):
     class Meta:
-        model = UserDetails
+        model = UserProfile
         exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
@@ -15,14 +15,16 @@ class UserDetailsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'default_phone_number': 'Phone Number',
-            'default_postcode': 'Postal Code',
+            'default_postcode': 'Post Code',
             'default_town_or_city': 'Town or City',
             'default_street_address1': 'Street Address 1',
             'default_street_address2': 'Street Address 2',
-            'default_county': 'County, State or Locality',
+            'default_county': 'County',
         }
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
+            placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
             self.fields[field].label = False

@@ -4,8 +4,8 @@ from basket.contexts import basket_contents
 from stock.models import Stock
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-from user_details.forms import UserDetailsForm
-from user_details.models import UserDetails
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 
 
 def checkout(request):

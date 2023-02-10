@@ -4,13 +4,13 @@ from django.db import models
 from django.db.models import Sum
 
 from stock.models import Stock
-from user_details.models import UserDetails
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
 
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(UserDetails, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
