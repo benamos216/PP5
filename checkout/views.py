@@ -1,15 +1,33 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.views.decorators.http import require_POST
 from django.conf import settings
 
-from basket.contexts import basket_contents
-from stock.models import Stock
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+from stock.models import Stock
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
+from basket.contexts import basket_contents
 
 import stripe
 import json
+
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'basket': json.dumps(request.session.get('basket', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -35,9 +53,9 @@ def checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_bag = json.dumps(bag)
+            order.original_basket = json.dumps(basket)
             order.save()
-            for item_id, item_data in bag.items():
+            for item_id, item_data in basket.items():
                 try:
                     stock = Stock.objects.get(id=item_id)
                     if isinstance(item_data, int):
@@ -51,8 +69,8 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_basket.html'))
 
-            request.session['save_info'] = 'save_info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+        request.session['save_info'] = 'save_info' in request.POST
+        return redirect(reverse('checkout_success', args=[order.order_number]))
     else:
         basket = request.session.get('basket', {})
         if not basket:
@@ -113,6 +131,8 @@ def checkout_success(request, order_number):
         # Save the user's info
         if save_info:
             profile_data = {
+                'default_first_name': order.first_name,
+                'default_last_name': order.last_name,
                 'default_phone_number': order.phone_number,
                 'default_postcode': order.postcode,
                 'default_town_or_city': order.town_or_city,
