@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h2 class="text-white">Testimonials</h2>
+    {% for review in reviews %}
+        {% if review.approved == True %}
+            <p class="text-white">{{ review.review }}</p>
+        {% endif %}
+    {% endfor %}
+    {% if user.review.approved == True %}
+        <div class="mb-2 text-center">
+            <p class="text-white">You have already left a review.</p>
+        </div>
+    {% else %}
+        {% if user.is_authenticated %}
+            <div class="mb-2 text-center">
+                <a href="{% url 'add_review' %}" class="text-white stock-link btn btn-outline-light rounded-1">Add Review</a>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

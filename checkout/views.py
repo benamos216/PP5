@@ -59,13 +59,13 @@ def checkout(request):
             for item_id, item_data in basket.items():
                 try:
                     stock = Stock.objects.get(id=item_id)
-                    # if isinstance(item_data, int):
-                    order_line_item = OrderLineItem(
-                        order=order,
-                        stock=stock,
-                        quantity=item_data,
-                    )
-                    order_line_item.save()
+                    if isinstance(item_data, int):
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            stock=stock,
+                            quantity=item_data,
+                        )
+                        order_line_item.save()
                 except Stock.DoesNotExist:
                     # messages.error(request, (
                     #     "One of the products in your bag wasn't found in our database. "
