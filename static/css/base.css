@@ -92,7 +92,6 @@ header {
 }
 
 .footer {
-    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
@@ -117,6 +116,23 @@ header {
 .policy > div {
     float: left;
     padding-right: 15px;
+}
+
+/* bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
 }
 
 /* index page css */
@@ -337,4 +353,10 @@ select option {
 select:invalid
 select option[value=""] {
   color: #aab7c4 !important;
+}
+
+/*Testimonials*/
+.card-title {
+    font-weight: bold;
+    text-decoration: underline;
 }

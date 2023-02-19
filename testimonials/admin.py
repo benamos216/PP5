@@ -5,7 +5,7 @@ from .models import Review
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
 
-    list_display = ('user', 'review', 'approved')
+    list_display = ('user', 'review', 'approved',)
     list_filter = ('approved',)
     actions = ['approve_comments']
 

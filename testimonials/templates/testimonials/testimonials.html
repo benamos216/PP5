@@ -2,21 +2,60 @@
 {% load static %}
 
 {% block content %}
-    <h2 class="text-white">Testimonials</h2>
-    {% for review in reviews %}
-        {% if review.approved == True %}
-            <p class="text-white">{{ review.review }}</p>
-        {% endif %}
-    {% endfor %}
-    {% if user.review.approved == True %}
-        <div class="mb-2 text-center">
-            <p class="text-white">You have already left a review.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 text-white mt-2">
+            <h2 class="text-white">Testimonials</h2>
         </div>
-    {% else %}
-        {% if user.is_authenticated %}
-            <div class="mb-2 text-center">
-                <a href="{% url 'add_review' %}" class="text-white stock-link btn btn-outline-light rounded-1">Add Review</a>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-4 text-white mt-2">
+            <div class="card ">
+                {% for review in reviews %}
+                    {% if review.approved == True %}
+                        <p class="text-dark fw-bold card-title pl-2">Review made by: {{ review.user }}</p>
+                        <p class="text-dark pl-2">{{ review.review }}</p>
+                    {% endif %}
+                {% endfor %}
             </div>
+        </div>
+    </div>     
+    <div class="row">
+        <div class="col-12 text-white mt-2"> 
+        {% if user.review.approved == True %}
+            <div class="mb-2 text-center mt-3">
+                <p class="text-white">You have already left a review.</p>
+            </div>
+        {% else %}
+            {% if user.is_authenticated %}
+                <div class="mb-2 text-center mt-3">
+                    <a href="{% url 'add_review' %}" class="text-white stock-link btn btn-outline-light rounded-1">Add Review</a>
+                </div>
+            {% endif %}
         {% endif %}
-    {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-4 text-white mt-2 mb-3">
+            {% if request.user.is_superuser %}
+                <h2>Testimonials to Approve</h2>
+                    <div class="card mt-3">
+                        {% for review in reviews %}
+                            {% if review.approved != True %}
+                                <p class="text-dark card-title pl-2">Review made by: {{ review.user }}</p>
+                                <p class="text-dark pl-2">{{ review.review }}</p>
+                            {% endif %}
+                            
+                        {% endfor %}
+                        <div class="mb-2 text-center mt-3">
+                                <a href="#" class="text-dark stock-link btn btn-outline-light rounded-1">Approve</a>
+                            </div>
+                            <div class="mb-2 text-center mt-3">
+                                <a href="#" class="text-dark stock-link btn btn-outline-light rounded-1">Delete</a>
+                            </div>
+                    </div>
+            {% endif %}
+        </div> 
+    </div>       
+</div>
 {% endblock %}

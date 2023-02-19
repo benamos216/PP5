@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 
 
 from .models import Review
@@ -23,7 +23,7 @@ def add_review(request):
         if form.is_valid():
             form.instance.user = request.user
             review = form.save(commit=False)
-            # review.save()
+            review.save()
             return redirect(reverse('review'))
     else:
         form = ReviewForm()
@@ -34,3 +34,20 @@ def add_review(request):
     }
 
     return render(request, template, context)
+
+
+# def approve_review(request, review_id):
+
+#     reviews = Review.objects.get(Review, pk=review_id)
+#     reviews.approved = True
+#     return redirect(reverse('review'))
+
+
+def delete_review(request, review_id):
+    """ Delete a stock from the store """
+    # if not request.user.is_superuser:
+    #     return redirect(reverse('home'))
+
+    reviews = get_object_or_404(Review, pk=review_id)
+    reviews.delete()
+    return redirect(reverse('review'))
