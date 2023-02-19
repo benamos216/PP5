@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
 
 
 from .models import Review
@@ -24,6 +25,8 @@ def add_review(request):
             form.instance.user = request.user
             review = form.save(commit=False)
             review.save()
+            messages.success(request, 'Your review has been submitted, \
+                and will be viewed to be approved for site content.')
             return redirect(reverse('review'))
     else:
         form = ReviewForm()

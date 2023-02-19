@@ -22,7 +22,7 @@
     </div>     
     <div class="row">
         <div class="col-12 text-white mt-2"> 
-        {% if user.review.approved == True %}
+        {% if user is review.review == review.user %}
             <div class="mb-2 text-center mt-3">
                 <p class="text-white">You have already left a review.</p>
             </div>
@@ -45,14 +45,13 @@
                                 <p class="text-dark card-title pl-2">Review made by: {{ review.user }}</p>
                                 <p class="text-dark pl-2">{{ review.review }}</p>
                             {% endif %}
-                            
                         {% endfor %}
                         <div class="mb-2 text-center mt-3">
-                                <a href="#" class="text-dark stock-link btn btn-outline-light rounded-1">Approve</a>
-                            </div>
-                            <div class="mb-2 text-center mt-3">
-                                <a href="#" class="text-dark stock-link btn btn-outline-light rounded-1">Delete</a>
-                            </div>
+                            <a href="#" class="text-dark stock-link btn btn-outline-light rounded-1">Approve</a>
+                        </div>
+                        <div class="mb-2 text-center mt-3">
+                            <a href="#" class="text-dark stock-link btn btn-outline-light rounded-1">Delete</a>
+                        </div>
                     </div>
             {% endif %}
         </div> 

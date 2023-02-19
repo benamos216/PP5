@@ -17,7 +17,7 @@
             <div class="order-confirmation-wrapper p-2 border">
                 <div class="row">
                     <div class="col">
-                        <small class="text-muted">Order Info:</small>
+                        <h3 class="text-white"><u>Order Info:</u></h3>
                     </div>
                 </div>
 
@@ -41,7 +41,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <small class="text-muted">Order Details:</small>
+                        <h3 class="text-white"><u>Order Details:</u></h3>
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <small class="text-muted">Delivering To:</small>
+                        <h3 class="text-white"><u>Delivering To:</u></h3>
                     </div>
                 </div>
 
@@ -135,7 +135,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <small class="text-muted">Billing Info:</small>
+                        <h3 class="text-white"><u>Billing Info:</u></h3>
                     </div>
                 </div>
 
@@ -153,7 +153,7 @@
                         <p class="mb-0 text-black font-weight-bold">Delivery</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
-                        <p class="mb-0">{{ order.delivery_cost }}</p>
+                        <p class="mb-0">Free Delivery</p>
                     </div>
                 </div>
 
@@ -171,14 +171,14 @@
     <div class="row">
         <div class="col-12 col-lg-7 text-right">
             {% if from_profile %}
-                <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
+                <a href="{% url 'profile' %}" class="btn btn-outline-light stock-link rounded-1 my-2">
                     <span class="icon mr-2">
-                        <i class="fas fa-angle-left"></i>
+                        <i class="fas fa-angle-left text-white"></i>
                     </span>
                     <span class="text-uppercase">Back to Profile</span>
                 </a>
             {% else %}
-                <a href="{% url 'stocks' %}" class="btn btn-black rounded-0 my-2">
+                <a href="{% url 'stocks' %}" class="btn btn-outline-light rounded-1 stock-link my-2">
                     <span class="icon mr-2">
                         <i class="fas fa-gifts"></i>
                     </span>

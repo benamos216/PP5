@@ -20,6 +20,7 @@ def add_to_basket(request, item_id):
 
     if item_id in list(basket.keys()):
         basket[item_id] += quantity
+        messages.success(request, f'Updated { stock.name } quantity to {basket[item_id]}')
     else:
         basket[item_id] = quantity
         messages.success(request, f'Added {stock.name} to your basket')
@@ -38,8 +39,10 @@ def adjust_basket(request, item_id):
 
     if quantity > 0:
         basket[item_id] = quantity
+        messages.success(request, f'Updated { stock.name } quantity to {basket[item_id]}')
     else:
         basket.pop(item_id)
+        messages.success(request, f'Removed { stock.name } from your basket')
 
     request.session['basket'] = basket
     return redirect(reverse('view_basket'))
@@ -53,9 +56,11 @@ def remove_from_basket(request, item_id):
 
         basket = request.session.get('basket', {})
         basket.pop(item_id)
+        messages.success(request, f'Removed { stock.name } from your basket')
 
         request.session['basket'] = basket
         return HttpResponse(status=200)
 
     except Exception as e:
+        messages.error(request,f'Error removing item: (e)')
         return HttpResponse(status=500)
