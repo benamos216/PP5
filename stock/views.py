@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
 from django.db.models import Q
 
 from .models import Stock, Category
@@ -38,6 +39,7 @@ def get_stocks(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
+                messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(price__icontains=query)
@@ -70,13 +72,17 @@ def stock_detail(request, stock_id):
 def add_stock(request):
     """ Add a stock line to the store """
     if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = StockForm(request.POST, request.FILES)
         if form.is_valid():
             stock = form.save()
+            messages.success(request, 'Successfully added stock!')
             return redirect(reverse('stock_detail', args=[stock.id]))
+        else:
+            messages.error(request, 'Failed to add stock. Please ensure the form is valid.')
     else:
         form = StockForm()
 
@@ -91,6 +97,7 @@ def add_stock(request):
 def edit_stock(request, stock_id):
     """ Edit a stock in the store """
     if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
     stock = get_object_or_404(Stock, pk=stock_id)
@@ -99,8 +106,11 @@ def edit_stock(request, stock_id):
         if form.is_valid():
             form.save()
             return redirect(reverse('stock_detail', args=[stock.id]))
+        else:
+            messages.error(request, 'Failed to edit stock. Please ensure the form is valid.')
     else:
         form = StockForm(instance=stock)
+        messages.info(request, f'You are editing { stock.name }')
 
     template = 'stock/edit_stock.html'
     context = {
@@ -114,8 +124,10 @@ def edit_stock(request, stock_id):
 def delete_stock(request, stock_id):
     """ Delete a stock from the store """
     if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
     stock = get_object_or_404(Stock, pk=stock_id)
     stock.delete()
+    messages.success(request, 'Stock deleted!')
     return redirect(reverse('stocks'))
