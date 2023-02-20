@@ -4,25 +4,29 @@
 {% block content %}
 
 {% endblock   <!--Email subscription Form -->
-    <form method="post" action="{% url 'subscription' %}">
-      {% csrf_token %}
-
-      <div class="form-group">
-        <label>Subscribe to get the latest Articles</label> <br>
-        <input type="email" name="email" placeholder="Enter Email to Subscribe">
-        <button class="btn btn-info" type="submit">Submit</button>
+  <div class="container text-white">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2>Newsletter Signup!</h2>
+        <hr class="bg-light">
+        <p>Sign up to receive all the latest news and information to do with Floree Rose Flowers.<br>
+          Including up to date offers and any new products in the pipeline.<br>
+        </p>
       </div>
 
-    </form>
+        <div class="col-12 text-center">
+          <form method="post" action="{% url 'subscription' %}">
+            {% csrf_token %}
 
-    <!-- message if email is sent -->
-  {% if messages %}
-    {% for message in messages %}
-      <div class="my-5 alert alert-success">
-        <h5 class="m-0">
-            {{ message }}
-        </h5>
-      </div>
-    {% endfor %}
-  {% endif %}
+            <div class="form-group">
+              <label>Please provide your email below.</label> <br>
+              <input type="email" name="email" placeholder="Enter Email to Subscribe" class="w-50">
+              <button class="btn btn-outline-light rounded-1 stock-link" type="submit">Submit</button>
+            </div>
+            <p>If you wish to unsubscribe at any time, please email floreerosesales@gmail.com</p>
+          </form>
+        </div>
+        
+    </div>
+  </div>
   {% endblock %}

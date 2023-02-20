@@ -266,8 +266,9 @@ header {
 }
 
 .stock-link:hover {
-    color: #62ECC6 !important;
+    color: #ec6288 !important;
     text-decoration: none !important;
+    background-color: black;
 }
 
 .sort-by-dropdown {

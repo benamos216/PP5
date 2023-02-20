@@ -175,6 +175,10 @@ STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECERT = os.environ.get('STRIPE_WH_SECRET', '')
 
+# MAILCHIMP CREDENTIALS
+MAILCHIMP_API_KEY = "884f81650371aca330b3b298990542de-us21"
+MAILCHIMP_DATA_CENTER = "us21"
+MAILCHIMP_EMAIL_LIST_ID = "9202c99111"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
