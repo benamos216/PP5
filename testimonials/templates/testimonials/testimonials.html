@@ -4,8 +4,9 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-6 text-white mt-2">
+        <div class="col-12 text-white text-center mt-2">
             <h2 class="text-white">Testimonials</h2>
+            <hr class="bg-light">
         </div>
     </div>
     <div class="row">
@@ -13,8 +14,8 @@
             <div class="card ">
                 {% for review in reviews %}
                     {% if review.approved == True %}
-                        <p class="text-dark fw-bold card-title pl-2">Review made by: {{ review.user }}</p>
                         <p class="text-dark pl-2">{{ review.review }}</p>
+                        <p class="text-dark fw-bold card-title pl-2">Review made by: {{ review.user }}</p>
                     {% endif %}
                 {% endfor %}
             </div>
