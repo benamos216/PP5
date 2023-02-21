@@ -29,6 +29,16 @@
                                     My Account
                                 </a>
                             </div>
+                            {% if user.is_superuser %}
+                                <div class="link divide">
+                                    &nbsp;
+                                </div>
+                                <div class="link">
+                                    <a href="/admin/">
+                                        Admin
+                                    </a>
+                                </div>
+                            {% endif %}
                             <div class="link divide">
                                 &nbsp;
                             </div>
