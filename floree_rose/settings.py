@@ -220,9 +220,10 @@ else:
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 # MAILCHIMP CREDENTIALS
-MAILCHIMP_API_KEY = "884f81650371aca330b3b298990542de-us21"
-MAILCHIMP_DATA_CENTER = "us21"
-MAILCHIMP_EMAIL_LIST_ID = "9202c99111"
+
+MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY')
+MAILCHIMP_DATA_CENTER = os.environ.get('MAILCHIMP_DATA_CENTER')
+MAILCHIMP_EMAIL_LIST_ID = os.environ.get('MAILCHIMP_EMAIL_LIST_ID')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
