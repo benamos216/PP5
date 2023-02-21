@@ -208,6 +208,7 @@ header {
     .btn-outline-light {
         margin-bottom: 20px;
     }
+
 }
 
 @media (max-width: 992px) {
@@ -275,15 +276,6 @@ header {
     text-align: -webkit-right;
 }
 
-/* Basket Page */
-
-.basket-items {
-    height: 10rem;
-}
-
-.stock-details {
-    margin-left: -150px;
-}
 
 /*Crispy Forms*/
 
