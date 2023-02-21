@@ -1,12 +1,15 @@
 asgiref==3.6.0
 chardet==5.1.0
+dj-database-url==0.5.0
 Django==3.2
 django-allauth==0.41.0
 django-crispy-forms==1.14.0
+gunicorn==20.1.0
 ldif3==3.1.1
 mailchimp-marketing==3.0.80
 oauthlib==3.2.2
 Pillow==9.4.0
+psycopg2==2.9.5
 python-card-me==0.9.3
 python3-openid==3.2.0
 pytz==2022.7
