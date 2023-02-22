@@ -5,16 +5,17 @@ from django.conf import settings
 
 from .models import Order, OrderLineItem
 from stock.models import Stock
+from profiles.models import UserProfile
 
 import json
 import time
+
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
     def __init__(self, request):
         self.request = request
-
 
     def _send_confirmation_email(self, order):
         """Send the user a confirmation email"""
@@ -32,7 +33,6 @@ class StripeWH_Handler:
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
-   
 
     def handle_event(self, event):
         """
