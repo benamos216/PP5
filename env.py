@@ -6,4 +6,4 @@ os.environ['STRIPE_PUBLIC_KEY', ''] = 'pk_test_51MIAC8ERRwgun0ZrdnW4cXbTlLzyNRRN
 os.environ['STRIPE_SECRET_KEY', ''] = 'sk_test_51MIAC8ERRwgun0ZrZyZ4AACRR9HX648jpzPkO9QRuN3ZqONoIJgmJRTavUkLPtYSuWOf4vQDVwerxV7DuLWD8w5F00GX316u0s'
 os.environ['STRIPE_WH_SECRET', ''] = 'whsec_2vf4SUZngB5O1q9jC7AitDT9sFGbXlyU'
 os.environ['EMAIL_HOST_USER'] = 'floreerosesales@gmail.com'
-os.environ['EMAIL_HOST_PASS'] = 'oyyimytuvxfevogb'
+os.environ['EMAIL_HOST_PASS'] = 'gqrtsmjcfcwagehw'
