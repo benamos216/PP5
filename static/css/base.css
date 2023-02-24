@@ -58,6 +58,7 @@ header {
 
 .divide {
     border-left: 2px solid #ec6288;
+    height: 40px;
 }
 
 #panelsearcharea,

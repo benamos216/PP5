@@ -12,18 +12,18 @@
             </li>
             <li class="nav-item dropdown vl">
                 <a class="logo-font font-weight-bold nav-link mr-3" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    All Products
+                    Products
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
                     <a href="{% url 'stocks' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                     <a href="{% url 'stocks' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
                     <a href="{% url 'stocks' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
-                    <a href="{% url 'stocks' %}" class="dropdown-item">All Products</a>
+                    <a href="{% url 'stocks' %}" class="dropdown-item">Products</a>
                 </div>
             </li>
-            <div class="link divide">
+            <p class="link divide">
                 &nbsp;
-            </div>
+            </p>
             <li class="nav-item dropdown vl">
                 <a class="logo-font font-weight-bold nav-link mr-3" href="#" id="seasonal-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Seasonal
@@ -35,9 +35,9 @@
                     <a href="{% url 'stocks' %}?category=winter" class="dropdown-item">Winter</a>
                 </div>
             </li>
-            <div class="link divide">
+            <p class="link divide">
                 &nbsp;
-            </div>
+            </p>
             <li class="nav-item dropdown vl">
                 <a class="logo-font font-weight-bold nav-link mr-3" href="#" id="clearance-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Promotions
@@ -45,12 +45,12 @@
                 <div class="dropdown-menu border-0" aria-labelledby="clearanace-link">
                     <a href="{% url 'stocks' %}?category=new" class="dropdown-item">New</a>
                     <a href="{% url 'stocks' %}?category=special_purchase" class="dropdown-item">Special Purchases</a>
-                    <a href="{% url 'stocks' %}?category=new, special_purchase" class="dropdown-item">All Promotions</a>
+                    <a href="{% url 'stocks' %}?category=new,special_purchase" class="dropdown-item">All Promotions</a>
                 </div>
             </li>
-            <div class="link divide">
+            <p class="link divide">
                 &nbsp;
-            </div>
+            </p>
             <li class="nav-item dropdown vl">
                 <a class="font-weight-bold nav-link" href="#" id="misc-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Miscellanous
@@ -58,20 +58,20 @@
                 <div class="dropdown-menu border-0" aria-labelledby="misc-link">
                     <a href="{% url 'stocks' %}?category=clearance" class="dropdown-item">Clearance</a>
                     <a href="{% url 'stocks' %}?category=other" class="dropdown-item">Other</a>
-                    <a href="{% url 'stocks' %}?category=clearance, other" class="dropdown-item">All Misc</a>
+                    <a href="{% url 'stocks' %}?category=clearance,other" class="dropdown-item">All Misc</a>
                 </div>
             </li>
-            <div class="link divide">
+            <p class="link divide">
                 &nbsp;
-            </div>
+            </p>
             <li class="nav-item dropdown vl">
                 <a class="font-weight-bold nav-link mr-3" href="{% url 'subscription' %}">
                     Newsletter
                 </a>
             </li>
-            <div class="link divide">
+            <p class="link divide">
                 &nbsp;
-            </div>
+            </p>
             <li class="nav-item dropdown vl">
                 <a class="font-weight-bold nav-link" href="{% url 'review' %}">
                     Reviews
