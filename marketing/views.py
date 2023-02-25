@@ -42,6 +42,7 @@ def subscription(request):
     if request.method == "POST":
         email = request.POST['email']
         subscribe(email)                    # function to access mailchimp
-        messages.success(request, "Email received. thank You! ") # message
+        messages.success(request,
+                         "Email received. thank You! ")  # message
 
     return render(request, "marketing/signupform.html")

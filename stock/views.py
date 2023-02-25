@@ -39,10 +39,12 @@ def get_stocks(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(price__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query) | Q(price__icontains=query)
             stocks = stocks.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -82,7 +84,9 @@ def add_stock(request):
             messages.success(request, 'Successfully added stock!')
             return redirect(reverse('stock_detail', args=[stock.id]))
         else:
-            messages.error(request, 'Failed to add stock. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to add stock.\
+                Please ensure the form is valid.')
     else:
         form = StockForm()
 
@@ -107,7 +111,9 @@ def edit_stock(request, stock_id):
             form.save()
             return redirect(reverse('stock_detail', args=[stock.id]))
         else:
-            messages.error(request, 'Failed to edit stock. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to edit stock.\
+                    Please ensure the form is valid.')
     else:
         form = StockForm(instance=stock)
         messages.info(request, f'You are editing { stock.name }')
