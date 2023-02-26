@@ -4,13 +4,13 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-12 text-white text-center mt-2">
-            <h2 class="text-white">Testimonials</h2>
+        <div class="col-12 text-center mt-2">
+            <h2>Testimonials</h2>
             <hr class="bg-light">
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-4 text-white mt-2">
+        <div class="col-12 col-md-4 mt-2">
             <div class="card ">
                 {% for review in reviews %}
                     {% if review.approved == True %}
@@ -22,40 +22,13 @@
         </div>
     </div>     
     <div class="row">
-        <div class="col-12 text-white mt-2"> 
-        {% if user is review.review == review.user %}
-            <div class="mb-2 text-center mt-3">
-                <p class="text-white">You have already left a review.</p>
-            </div>
-        {% else %}
+        <div class="col-12 mt-2"> 
             {% if user.is_authenticated %}
                 <div class="mb-2 text-center mt-3">
-                    <a href="{% url 'add_review' %}" class="text-white stock-link btn btn-outline-light rounded-1" aria-label="Add Review">Add Review</a>
+                    <a href="{% url 'add_review' %}" class="stock-link btn btn-outline-light rounded-1" aria-label="Add Review">Add Review</a>
                 </div>
             {% endif %}
-        {% endif %}
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 col-md-4 text-white mt-2 mb-3">
-            {% if request.user.is_superuser %}
-                <h2>Testimonials to Approve</h2>
-                    <div class="card mt-3">
-                        {% for review in reviews %}
-                            {% if review.approved != True %}
-                                <p class="text-dark card-title pl-2">Review made by: {{ review.user }}</p>
-                                <p class="text-dark pl-2">{{ review.review }}</p>
-                            {% endif %}
-                        {% endfor %}
-                        <div class="mb-2 text-center mt-3">
-                            <a href="#" class="text-dark stock-link btn btn-outline-light rounded-1">Approve</a>
-                        </div>
-                        <div class="mb-2 text-center mt-3">
-                            <a href="#" class="text-dark stock-link btn btn-outline-light rounded-1">Delete</a>
-                        </div>
-                    </div>
-            {% endif %}
-        </div> 
-    </div>       
 </div>
 {% endblock %}

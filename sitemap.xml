@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://floree-rose.herokuapp.com/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/accounts/login/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?sort=price&amp;direction=asc</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?sort=rating&amp;direction=desc</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?sort=category&amp;direction=asc</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=spring</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=summmer</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=autumn</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=winter</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=new</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=special_purchase</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=new,special_purchase</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=clearance</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=other</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=clearance,other</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/marketing/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/testimonials/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/?category=summer</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/policy/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/3/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/4/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/2/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://floree-rose.herokuapp.com/stock/1/</loc>
+  <lastmod>2023-02-26T20:28:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

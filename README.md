@@ -10,7 +10,13 @@ To create a website that allows Floree Rose Flowers to showcase their products a
 
 [Facebook Mockup](/media/readme/Floree%20Rose%20Flower%20Facebook%20Mockup.bmpr)
 
+Actual Facebook Page
+
+https://www.facebook.com/floreeroseflowers/
+
 [PP5 Planning](/media/readme/PP5-Planning.doc)
+
+n.b. At time of development Floree Rose Flowers didn't have an active website, since during the development an active website has since been launched, which is why Facebook Mockups have been used.
 
 ## Create
 Create instances of Stock, including all relevant data including images and category it belongs in, that is required for each item.
@@ -26,6 +32,9 @@ Allows the Floree Rose Flowers to delete stock that is no longer available, allo
 ![Database Schema](/media/readme/databaseschema.png)
 
 # Agile
+Project has been worked through with User Stories in an Agile method. Below is the spreadsheet that was used to track all the important parts of the project that were required to be completed. Along with this, the date of acheivement and the commit that links to this has been recorded.
+
+[User Stories](/media/readme/User%2520Stories.xls_0.ods)
 
 # Wireframes
 General mockup of how the site will look on both desktop and mobile. Using the colour scheme from the main logo as inspiration for the overall look of both displays. Trying to keep simple and clean, so an easy to navigate experience for the user. Desktop view will be able to display multiple items across the page, whereas mobile it will be stacked on top of one another.
@@ -43,6 +52,7 @@ Image of how the site will look on different platforms, from Desktop to Mobile.
 ![Responsive Image](media/readme/responsive.png)
 
 # Lighthouse Performance
+Both desktop and mobile versions of the site have been passed through Chrome's Lighthouse to measure it's Performance, Accessability, Best Practices and SEO. This has been run several times, with improvements been made through the report generated, below are the current performance for the site.
 
 ![Desktop Lighthouse](media/readme/lighthouse-desktop.png)
 ![Mobile Lighthouse](media/readme/lighthouse2.png)
@@ -89,6 +99,9 @@ The following packages were used to create this project.
 
 ### Pillow 9.4
 [Python Imaging Library](https://pypi.org/project/Pillow/)
+
+### Stripe
+[Stripe Payment Framework](https:stripe.com)
 
 # Features
 
@@ -193,8 +206,26 @@ Future features that could be implemented to improve user/admin experience.
 All testing has been done manually. Tests were carried out to ensure that each function or feature should behave the way it should. For example, if it should redirect to another page. Any errors were then, debugged and retested until the correct outcome was happening. Even when the correct outcome happens, testing was still done to ensure it was not an anolmaly and prefromed as it was intended.
 
 # Bugs
+Upon deployment, there were no known bugs, however there was some issues during development, these were as follows;
+
+    - Checkout Success - Page didn't load onto the checkout success page upon payment, redirected the user straight back to the checkout page with items still in their basket. Issue with the webhooks with Stripe payments. Reworked along with Code Institutes Boutique Ado to ensure they were working correctly.
+
+    - 
 
 # Deployment
+Site has been deployed to Heroku to host the site and display it. For the site to function properly, upon deployment several actions were taken to ensure all was working correctly.
+
+Firstly database has been migrated to ElephantSQL as a PostgresSQL service. Database URL is also saved within Heroku's environment variable.
+
+Secondly we used Amazon's AWS services to create an S3 bucket to host static and media files, static files are automatically loaded to the S3, while media files were manually loaded. Again Variables were added to within Heroku's environment variables.
+
+Also any other environment variables that are required were also added to Heroku's config var.
+
+We also linked up our github repository to Heroku, so that any changes that are made can be deployed to the live site.
+
+Within settings.py Debug was set to false, and If statements were formed for database, static and media files so that if we are in development (Gitpod), only development settings would be used, otherwise live environments are used. This allows for changes to be made and checked without affecting the live site until needed. If changes are made, they are push through gitpod, and with Heroku on automatic deployment, it will load straight to the live site.
+
+
 
 # Credits
 - Inspired by Code Institutes Boutique Ado.
