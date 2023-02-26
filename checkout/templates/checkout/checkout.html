@@ -7,12 +7,12 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h2 class="text-white text-center mt-3">Checkout</h2>
+                <h2 class="text-center mt-3">Checkout</h2>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-6 col-lg-last mt-3 text-white">
+            <div class="col-12 col-lg-6 col-lg-last mt-3">
                 <p>Order Summary: {{ stock_count }} Items</p>
                 <div class="row">
                     <div class="col-7 offset-2">
@@ -51,9 +51,9 @@
                     </div>
                 </div>
             </div>    
-            <div class="col-12 col-lg-6 col-lg-last mt-3 text-white">
+            <div class="col-12 col-lg-6 col-lg-last mt-3">
                 <div class="row ml-3">
-                    <p class="text-white">Please fill out the form below to complete your order</p>
+                    <p>Please fill out the form below to complete your order</p>
                 </div>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
@@ -70,7 +70,7 @@
                         {{ order_form.town_or_city | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
-                        <div class="form-check form-check-inline float-right mr-0 text-white">
+                        <div class="form-check form-check-inline float-right mr-0">
                             {% if user.is_authenticated %}
                                 <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
                                 <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
@@ -94,20 +94,20 @@
 
                     <div class="submit-button text-right mt-5 mb-2">                    
                         <a href="{% url 'view_basket' %}" class="btn btn-outline-light rounded-1 stock-link" aria-label="Adjust Basket">
-                            <span class="text-white">
-                                <i class="fas fa-chevron-left"></i>
+                            <span>
+                                <i class="fas fa-chevron-left text-white"></i>
                             </span>
                             <span class="font-weight-bold">Adjust Basket</span>
                         </a>
                         <button id="submit-button" class="btn btn-outline-light rounded-1 stock-link" aria-label="Complete Order">
                             <span class="font-weight-bold">Complete Order</span>
-                            <span class="text-white">
-                                <i class="fas fa-lock"></i>
+                            <span>
+                                <i class="fas fa-lock text-white"></i>
                             </span>
                         </button>
-                        <p class="small text-white my-0">
-                            <span class="text-white">
-                                <i class="fas fa-exclamation-circle"></i>
+                        <p class="small my-0">
+                            <span>
+                                <i class="fas fa-exclamation-circle text-white"></i>
                             </span>
                             <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
                         </p>
