@@ -47,8 +47,8 @@
                     <!--Allows only registered users with permissions to edit or delete stock.-->
                     {% if request.user.is_superuser %}
                         <small class="mt-3 text-white">
-                            <a href="{% url 'edit_stock' stock.id %}" class="stock-link text-white">Edit</a> |
-                            <a href="{% url 'delete_stock' stock.id %}" class="stock-link text-white">Delete</a>
+                            <a href="{% url 'edit_stock' stock.id %}" class="stock-link text-white" aria-label="Edit Stock">Edit</a> |
+                            <a href="{% url 'delete_stock' stock.id %}" class="stock-link text-white" aria-label="Delete Stock">Delete</a>
                         </small>
                     {% endif %}
                     <form action="{% url 'add_to_basket' stock.id %}" class="form" method="POST">
@@ -60,7 +60,7 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn btn-outline-light rounded-1"
-                                                data-item_id="{{ stock.id }}" id="decrement-qty_{{ stock.id }}">
+                                                data-item_id="{{ stock.id }}" id="decrement-qty_{{ stock.id }}" aria-label="Decrease Quantity">
                                                 <span class="icon">
                                                     <i class="fas fa-minus text-white stock-link"></i>
                                                 </span>
@@ -71,7 +71,7 @@
                                             class="form-control qty_input">
                                         <div class="input-group-append">
                                             <button class="increment-qty btn btn-outline-light rounded-1"
-                                                data-item_id="{{ stock.id }}" id="increment-qty_{{ stock.id }}">
+                                                data-item_id="{{ stock.id }}" id="increment-qty_{{ stock.id }}" aria-label="Increase Quantity">
                                                 <span class="icon">
                                                     <i class="fas fa-plus text-white stock-link"></i>
                                                 </span>
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="col{% if s %}-12 mt-2{% endif %}">
-                                <a href="{% url 'stocks' %}" class="btn btn-outline-light rounded-1 stock-link mt-5">
+                                <a href="{% url 'stocks' %}" class="btn btn-outline-light rounded-1 stock-link mt-5" aria-label="Keep Shopping">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left text-white stock-link"></i>
                                     </span>
@@ -92,7 +92,7 @@
                                 {% elif stock.stock_quantity == 0 %}
                                     <p class="mt-2 font-weight-bold">OUT OF STOCK</p>
                                 {% else %}
-                                    <input type="submit" class="btn btn-black btn-outline-light stock-link rounded-1 text-uppercase mt-5 text-white" value="Add to Basket">
+                                    <input type="submit" class="btn btn-black btn-outline-light stock-link rounded-1 text-uppercase mt-5 text-white" value="Add to Basket" aria-label="Add to Basket">
                                 {% endif %} 
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">

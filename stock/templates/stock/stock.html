@@ -91,7 +91,7 @@
                 </div>
                 {% if request.user.is_superuser %}
                 <div class="mb-2 text-center">
-                    <a href="{% url 'add_stock' %}" class="text-white stock-link btn btn-outline-light rounded-1">Add Stock</a>
+                    <a href="{% url 'add_stock' %}" class="text-white stock-link btn btn-outline-light rounded-1" aria-label="Add Stock">Add Stock</a>
                 </div>
                 {% endif %}
             </div>

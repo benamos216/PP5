@@ -30,7 +30,7 @@
         {% else %}
             {% if user.is_authenticated %}
                 <div class="mb-2 text-center mt-3">
-                    <a href="{% url 'add_review' %}" class="text-white stock-link btn btn-outline-light rounded-1">Add Review</a>
+                    <a href="{% url 'add_review' %}" class="text-white stock-link btn btn-outline-light rounded-1" aria-label="Add Review">Add Review</a>
                 </div>
             {% endif %}
         {% endif %}
