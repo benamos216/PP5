@@ -88,6 +88,10 @@ header {
     color:#ec6288 !important;
 }
 
+.mobile-account {
+    display: contents;
+}
+
 .dropdown-item {
     color: #ec6288;
 }
