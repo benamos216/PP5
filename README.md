@@ -8,8 +8,9 @@ https://floree-rose.herokuapp.com/
 
 To create a website that allows Floree Rose Flowers to showcase their products and allows the user to purchase an item if they desire. Allows Floree Rose Flowers CRUD functionality on all stock items, via front end access, as well as backend in the Admin panel. Give the user ability to select multiple items to a basket and then make a secure checkout once finished. User details are then stored for future purchases, and allows them to update their details as and when they like, also to show their order history. User can also leave a review on their overall service they have received and sign up to future newsletters that Floree Rose may send out.
 
-![Facebook Mockup]()
-![PP5 Planning](/PP5-Planning.doc)
+[Facebook Mockup](/media/readme/Floree%20Rose%20Flower%20Facebook%20Mockup.bmpr)
+
+[PP5 Planning](/media/readme/PP5-Planning.doc)
 
 ## Create
 Create instances of Stock, including all relevant data including images and category it belongs in, that is required for each item.
@@ -27,13 +28,13 @@ Allows the Floree Rose Flowers to delete stock that is no longer available, allo
 # Agile
 
 # Wireframes
-General mockup of how the site will look on both desktop and mobile
+General mockup of how the site will look on both desktop and mobile. Using the colour scheme from the main logo as inspiration for the overall look of both displays. Trying to keep simple and clean, so an easy to navigate experience for the user. Desktop view will be able to display multiple items across the page, whereas mobile it will be stacked on top of one another.
 
 ## Desktop Wireframe
-![Desktop Wireframe]()
+[Desktop Wireframe](/media/readme/Desktop-Mockup.bmpr)
 
 ## Mobile Wireframe
-![Mobile Wireframe]()
+[Mobile Wireframe](/media/readme/Mobile-Mockup.bmpr)
 
 # User Responsiveness
 
@@ -43,11 +44,11 @@ Image of how the site will look on different platforms, from Desktop to Mobile.
 
 # Lighthouse Performance
 
-![Desktop Lighthouse](media/readme/lighthouse1.png)
+![Desktop Lighthouse](media/readme/lighthouse-desktop.png)
 ![Mobile Lighthouse](media/readme/lighthouse2.png)
 
 # Validation
-All page source HTML was passed through Nu HTML Validator to confirm all coding was up to standard.
+All page source HTML was passed through Nu HTML Validator to confirm all coding was up to standard. Only errorswarnings are for duplicated IDs that are used on mobile and desktop navigation. Along with stray footer tag, although there is a closing tag for the footer.
 
 CSS code was also passed through a validator to make sure it conforms.
 
