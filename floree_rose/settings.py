@@ -228,7 +228,7 @@ MAILCHIMP_EMAIL_LIST_ID = os.environ.get('MAILCHIMP_EMAIL_LIST_ID', '')
 
 # SENDGRID CREDENTIALS
 FROM_EMAIL = 'floreerosesales@gmail.com'
-SENDGRID_API_KEY = ('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')
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
