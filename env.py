@@ -7,3 +7,4 @@ os.environ['STRIPE_SECRET_KEY', ''] = 'sk_test_51MIAC8ERRwgun0ZrZyZ4AACRR9HX648j
 os.environ['STRIPE_WH_SECRET', ''] = 'whsec_2vf4SUZngB5O1q9jC7AitDT9sFGbXlyU'
 os.environ['EMAIL_HOST_USER'] = 'floreerosesales@gmail.com'
 os.environ['EMAIL_HOST_PASS'] = 'gqrtsmjcfcwagehw'
+os.environ['SENDGRID_API_KEY'] = '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'
