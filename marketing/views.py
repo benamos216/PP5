@@ -1,48 +1,53 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect, reverse
+from . forms import SubscibersForm, MailMessageForm
+from . models import Subscribers
 from django.contrib import messages
-
-from django.conf import settings
-from mailchimp_marketing import Client
-from mailchimp_marketing.api_client import ApiClientError
+from django.core.mail import send_mail
+from django_pandas.io import read_frame
 
 
-# Mailchimp Settings
-api_key = settings.MAILCHIMP_API_KEY
-server = settings.MAILCHIMP_DATA_CENTER
-list_id = settings.MAILCHIMP_EMAIL_LIST_ID
+def subscribe(request):
+    if request.method == 'POST':
+        form = SubscibersForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Subscription Successful')
+            return redirect('home')
+    else:
+        form = SubscibersForm()
 
-
-# Subscription Logic
-def subscribe(email):
-    """
-     Contains code handling the communication to the mailchimp api
-     to create a contact/member in an audience/list.
-    """
-
-    mailchimp = Client()
-    mailchimp.set_config({
-        "api_key": api_key,
-        "server": server,
-    })
-
-    member_info = {
-        "email_address": email,
-        "status": "subscribed",
+    template = 'marketing/signupform.html'
+    context = {
+        'form': form,
     }
-
-    try:
-        response = mailchimp.lists.add_list_member(list_id, member_info)
-        print("response: {}".format(response))
-    except ApiClientError as error:
-        print("An exception occurred: {}".format(error.text))
+    return render(request, template, context)
 
 
-# Views here.
-def subscription(request):
-    if request.method == "POST":
-        email = request.POST['email']
-        subscribe(email)                    # function to access mailchimp
-        messages.success(request,
-                         "Email received. thank You! ")  # message
+def newsletter(request):
+    emails = Subscribers.objects.all()
+    df = read_frame(emails, fieldnames=['email'])
+    mail_list = df['email'].values.tolist()
+    print(mail_list)
+    if request.method == 'POST':
+        form = MailMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            title = form.cleaned_data.get('title')
+            message = form.cleaned_data.get('message')
+            send_mail(
+                title,
+                message,
+                '',
+                mail_list,
+                fail_silently=False,
+            )
+            messages.success(request, 'Message has been sent to the Mail List')
+            return redirect('newsletter')
+    else:
+        form = MailMessageForm()
 
-    return render(request, "marketing/signupform.html")
+    template = 'marketing/newsletter.html'
+    context = {
+        'form': form,
+    }
+    return render(request, template, context)

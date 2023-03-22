@@ -1,32 +1,38 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
+{% load crispy_forms_tags %}
 
-<!--Email subscription Form -->
-  <div class="container">
-    <div class="row pt-3">
-      <div class="col-12 text-center">
-        <h2>Newsletter Signup!</h2>
-        <hr class="bg-light">
-        <p>Sign up to receive all the latest news and information to do with Floree Rose Flowers.<br>
-          Including up to date offers and any new products in the pipeline.<br>
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col text-center mt-3">
+          <h2>Subscription</h2>
+          <hr class="w-50 mb-1 bg-white">
+          <p>Please enter your email address if you would like to be added to our newsletter mailing list.</p>
+      </div>
+    </div>
+    <div class="row mt-2 mb-3">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-body text-pink">
+                    <h3 class="text-center">Subscribe to Newsletter</h3>
+                    <hr>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-outline-light rounded-1 stock-link crispy" type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col text-center mt-2 mb-2">
+        <p>If you would like to remove your email from our mailing list, please send an email to floreerosesales@gmail.com
+           with the subject title 'Unsubscribe'.
         </p>
       </div>
-
-        <div class="col-12 text-center">
-          <form method="post" action="{% url 'subscription' %}">
-            {% csrf_token %}
-
-            <div class="form-group">
-              <label>Please provide your email below.</label> <br>
-              <input type="email" name="email" placeholder="Enter Email to Subscribe" class="w-50">
-              <button class="btn btn-outline-light rounded-1 stock-link" type="submit" aria-label="Submit">Submit</button>
-            </div>
-            <p>If you wish to unsubscribe at any time, please email floreerosesales@gmail.com</p>
-          </form>
-        </div>
-        
     </div>
-  </div>
+</div>
   {% endblock %}
