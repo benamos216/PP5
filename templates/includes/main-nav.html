@@ -113,15 +113,15 @@
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <div class="collapse navbar-collapse" id="main-nav">
+                            <div class="collapse navbar-collapse" id="main-nav-main">
                                 <ul class="navbar-nav w-auto mx-auto">
                                     <li class="d-block nav-item d-md-none">
-                                        <a class="logo-font font-weight-bold nav-link mr-5" href="{% url 'home' %}" id="home-link">
+                                        <a class="logo-font font-weight-bold nav-link mr-5" href="{% url 'home' %}" id="home-link-main">
                                             Home
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown vl">
-                                        <a class="logo-font font-weight-bold nav-link mr-3" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="logo-font font-weight-bold nav-link mr-3" href="#" id="all-products-link-main" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Products
                                         </a>
                                         <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
@@ -135,7 +135,7 @@
                                         &nbsp;
                                     </li>
                                     <li class="nav-item dropdown vl">
-                                        <a class="logo-font font-weight-bold nav-link mr-3" href="#" id="seasonal-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="logo-font font-weight-bold nav-link mr-3" href="#" id="seasonal-link-main" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Seasonal
                                         </a>
                                         <div class="dropdown-menu border-0" aria-labelledby="seasonal-link">
@@ -149,7 +149,7 @@
                                         &nbsp;
                                     </li>
                                     <li class="nav-item dropdown vl">
-                                        <a class="logo-font font-weight-bold nav-link mr-3" href="#" id="clearance-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="logo-font font-weight-bold nav-link mr-3" href="#" id="clearance-link-main" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Promotions
                                         </a>
                                         <div class="dropdown-menu border-0" aria-labelledby="clearance-link">
@@ -162,7 +162,7 @@
                                         &nbsp;
                                     </li>
                                     <li class="nav-item dropdown vl">
-                                        <a class="font-weight-bold nav-link mr-3" href="#" id="misc-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="font-weight-bold nav-link mr-3" href="#" id="misc-link-main" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Miscellanous
                                         </a>
                                         <div class="dropdown-menu border-0" aria-labelledby="misc-link">
@@ -175,10 +175,10 @@
                                         &nbsp;
                                     </li>
                                     <li class="nav-item dropdown vl">
-                                        <a class="font-weight-bold nav-link mr-3" href="#" id="misc-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="font-weight-bold nav-link mr-3" href="#" id="newsletter-link-main" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Newsletter
                                         </a>
-                                        <div class="dropdown-menu border-0" aria-labelledby="misc-link">
+                                        <div class="dropdown-menu border-0" aria-labelledby="newsletter-link">
                                             <a href="{% url 'subscribe' %}" class="dropdown-item">Subscribe</a>
                                             {% if user.is_superuser %}
                                                 <a href="{% url 'newsletter' %}" class="dropdown-item">Newsletter</a>

@@ -32,9 +32,9 @@ Allows the Floree Rose Flowers to delete stock that is no longer available, allo
 ![Database Schema](/media/readme/databaseschema.png)
 
 # Agile
-Project has been worked through with User Stories in an Agile method. Below is the spreadsheet that was used to track all the important parts of the project that were required to be completed. Along with this, the date of acheivement and the commit that links to this has been recorded.
+Project has been worked through with User Stories in an Agile method. Using Github's projects, User issues were created to work through. These issues we given a story points (8, 6, 4 or 2), Stories were then split over iterations, with each iteration having a total of 20 story points. This allowed us to focus on the key stories to develop, show progress to the site owner through each iteration. Link to the project is below.
 
-[User Stories](/media/readme/User%2520Stories.xls_0.ods)
+[User Stories](https://github.com/users/benamos216/projects/4)
 
 # Wireframes
 General mockup of how the site will look on both desktop and mobile. Using the colour scheme from the main logo as inspiration for the overall look of both displays. Trying to keep simple and clean, so an easy to navigate experience for the user. Desktop view will be able to display multiple items across the page, whereas mobile it will be stacked on top of one another.
@@ -162,10 +162,10 @@ If the user has previously made an order, they can access these through the prof
 ![Order History](/media/readme/order-history.png)
 
 ### Newsletter
-If the user would like to keep up to date with all of the latest news from Floree Rose Flowers, they are able to signup to the newsletter subscription. This is linked to Mailchimp, which will store the email for Floree Rose Flowers to then bulk email its users with their newsletter. This allows the user to decide if they want their details stored and they are advised how to remove their email from the database.
+If the user would like to keep up to date with all of the latest news from Floree Rose Flowers, they are able to signup to the newsletter subscription. This stores their email address to the database. When an admin user signs in, they can then send a newsletter to all users that have been added, with a title and message body. Once sent, it goes through to all email addresses stored within the database. The newsletter is also stored for possible future use. Users can opt out currently by emailing 'Unsubscribe' to the email address listed.
 
 ![Newsletter - signup](/media/readme/Newsletter-signup.png)
-![Newsletter - mailchimp](/media/readme/mailchimp.png)
+![Newsletter - Newsletter](/media/readme/newsletter-newsletter.png)
 
 ### Reviews
 Users are able to leave feedback on their experience with Floree Rose Flowers. The user fills in the form, which is then sent for approval from the Admin team. If approved, the review will then be displayed showing the review and who left the review. At present approval for reviews are made through the admin panel. Reviews have to be approved, as it allows Floree Rose Flowers to monitor and remove any malicious reviews before they are posted.
@@ -196,8 +196,8 @@ Future features that could be implemented to improve user/admin experience.
 - ### Front End Review Approval
     Allow the SuperUser to approve any reviews from the frontend, meaning they don't have to navigate through the Admin panel to approve each and every reveiw/
 
-- ### Integrated Newsletter signup
-    Have opt in for newsletter integrated with the user signup form. This would help capture more users for marketing, than relying on the user to signup.
+- ### Newsletter updates
+    Have opt in for newsletter integrated with the user signup form. This would help capture more users for marketing, than relying on the user to signup. Allow the user to unsubscribe themselves with a simple click of button on site. Give the site owner/admin more editing options within the newsletter itself, including adding media to the newsletters themselves.
 
 - ### Front End Rating
     At present, ratings are manually entered for each product. Give the users the ability to rate each item through the front end of the site, will not only show Floree Rose Flowers the items that their users like the most and show them what items they are rating the most.
@@ -210,7 +210,7 @@ Upon deployment, there were no known bugs, however there was some issues during 
 
     - Checkout Success - Page didn't load onto the checkout success page upon payment, redirected the user straight back to the checkout page with items still in their basket. Issue with the webhooks with Stripe payments. Reworked along with Code Institutes Boutique Ado to ensure they were working correctly.
 
-    - 
+    - Tried to reimplement the Newsletter function with a third party app, Twilio Sendgrid. Had issues communicating through the API, believe it may have been due to account limitations with Twilio itself, blocking communication for website to API. Removed and built basic in website newsletter functions.
 
 # Deployment
 Site has been deployed to Heroku to host the site and display it. For the site to function properly, upon deployment several actions were taken to ensure all was working correctly.
@@ -225,8 +225,6 @@ We also linked up our github repository to Heroku, so that any changes that are 
 
 Within settings.py Debug was set to false, and If statements were formed for database, static and media files so that if we are in development (Gitpod), only development settings would be used, otherwise live environments are used. This allows for changes to be made and checked without affecting the live site until needed. If changes are made, they are push through gitpod, and with Heroku on automatic deployment, it will load straight to the live site.
 
-
-
 # Credits
 - Inspired by Code Institutes Boutique Ado.
 
@@ -235,3 +233,8 @@ Within settings.py Debug was set to false, and If statements were formed for dat
 - www.djangoproject.com for guidance with libraries, frameworks etc.
 
 - www.stackoverflow.com for further guidance and support with any issues.
+
+# Changes Made
+- Newsletter reworked. Now has a model for both Subscribers (email and date) and the Newsletter (title and message) itself. Instead of using third party app through it's API, the site owner can now manage subscribers and send newsletter through the site itself.
+
+- AGILE methodology.
