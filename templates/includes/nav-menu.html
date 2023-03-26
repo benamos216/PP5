@@ -65,10 +65,10 @@
                 &nbsp;
             </li>
             <li class="nav-item dropdown vl">
-                <a class="font-weight-bold nav-link mr-3" href="#" id="misc-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="font-weight-bold nav-link mr-3" href="#" id="newsletter-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Newsletter
                 </a>
-                <div class="dropdown-menu border-0" aria-labelledby="misc-link">
+                <div class="dropdown-menu border-0" aria-labelledby="newsletter-link">
                     <a href="{% url 'subscribe' %}" class="dropdown-item">Subscribe</a>
                     {% if user.is_superuser %}
                         <a href="{% url 'newsletter' %}" class="dropdown-item">Newsletter</a>
