@@ -292,13 +292,9 @@ header {
     color: white;
 }
 
-.requiredField {
-    color: #ec6288;
-}
-
-.crispy {
-    color: #ec6288;
-    border-color: #ec6288;
+.card {
+    background-color: #ec6288;
+    border: none;
 }
 
 .btn-file {

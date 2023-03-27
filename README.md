@@ -238,3 +238,7 @@ Within settings.py Debug was set to false, and If statements were formed for dat
 - Newsletter reworked. Now has a model for both Subscribers (email and date) and the Newsletter (title and message) itself. Instead of using third party app through it's API, the site owner can now manage subscribers and send newsletter through the site itself.
 
 - AGILE methodology.
+
+- Removed duplicated ID tags and stray tag errors.
+
+- Added MinValidators to Price, Rating and Stock Quantity fields to prevent negative numbers being inputted.

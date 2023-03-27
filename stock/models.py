@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import MinValueValidator
+from decimal import Decimal
 import random
 
 
@@ -37,12 +39,16 @@ class Stock(models.Model):
         unique=True, editable=False, default=create_new_sku)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(
+        max_digits=6, decimal_places=2,
+        validators=[MinValueValidator(Decimal('0.01'))])
     rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
+        max_digits=6, decimal_places=2, null=True, blank=True,
+        validators=[MinValueValidator(0)])
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    stock_quantity = models.IntegerField(null=True, blank=True)
+    stock_quantity = models.IntegerField(
+        null=True, blank=True, validators=[MinValueValidator(0)])
     gift = models.BooleanField(
         null=True, blank=True, default=False, editable=False)
 
